@@ -34,7 +34,7 @@ distclean:
 install: all
 	install -D -m 0644 "data/$(ID).conf" "$(DESTDIR)$(datadir)/dbus-1/system.d/$(ID).conf"
 	install -D -m 0644 "data/$(ID).policy" "$(DESTDIR)$(datadir)/polkit-1/actions/$(ID).policy"
-	install -D -m 0644 "data/$(ID).service" "$(DESTDIR)$(libdir)/systemd/system/$(ID).service"
+	install -D -m 0644 "data/$(ID).service" "$(DESTDIR)$(datadir)/dbus-1/system-services/$(ID).service"
 	install -D -m 0644 "data/$(ID).xml" "$(DESTDIR)$(datadir)/dbus-1/interfaces/$(ID).xml"
 	install -D -m 0755 "target/release/$(BIN)" "$(DESTDIR)$(bindir)/$(BIN)"
 
@@ -43,7 +43,7 @@ uninstall:
 	rm -f "$(DESTDIR)$(datadir)/dbus-1/interfaces/$(ID).xml"
 	rm -f "$(DESTDIR)$(datadir)/dbus-1/system.d/$(ID).conf"
 	rm -f "$(DESTDIR)$(datadir)/polkit-1/actions/$(ID).policy"
-	rm -f "$(DESTDIR)$(libdir)/systemd/system/$(ID).service"
+	rm -f "$(DESTDIR)$(datadir)/dbus-1/system-services/$(ID).service"
 
 update:
 	cargo update
